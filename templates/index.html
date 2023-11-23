@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello</h1>
+    {% if result %}
+        {% for item in result %}
+            <li>{{ item.Name }} - {{ item.email }}</li>
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>
