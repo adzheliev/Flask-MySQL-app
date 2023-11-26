@@ -1,18 +1,23 @@
 version: '3'
-
 services:
-  web:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
+      - 5000:5000
+    volumes:
+      - ./templates:/app/templates
     depends_on:
       - db
+    command: sh -c "sleep 30 && python app.py"
   db:
-    image: mysql:8.0
+    image: mysql:8.2.0
+    command: --skip-host-cache --default_authentication_plugin=mysql_native_password --lower_case_table_names=2
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 12081984zZ
-      MYSQL_DATABASE: test_aws
-      MYSQL_USER: root
-      MYSQL_PASSWORD: 12081984zZ
+      MYSQL_ROOT_PASSWORD: Demid2019Mark2022
+      MYSQL_DATABASE: your_database
+    volumes:
+      - ./data:/var/lib/mysql
+

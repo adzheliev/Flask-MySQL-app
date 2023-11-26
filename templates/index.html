@@ -5,10 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hello</h1>
-    {% if result %}
-        {% for item in result %}
-            <li>{{ item.Name }} - {{ item.email }}</li>
+<h1>Hello there</h1>
+    {% if results %}
+        {% for item in results %}
+            <li>{{ item.name }} - {{ item.price }}</li>
         {% endfor %}
     {% endif %}
 
